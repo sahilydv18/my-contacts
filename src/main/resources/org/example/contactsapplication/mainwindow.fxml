@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<?import org.example.contactsapplication.customtable.CustomTableView?>
+<?import org.example.contactsapplication.customtable.CustomTableColumn?>
+<BorderPane fx:id="mainBorderPane" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.contactsapplication.HelloController">
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem onAction="#showNewContactDialog" text="New Contact"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem onAction="#exitApp" text="Exit"/>
+                </Menu>
+            </MenuBar>
+            <ToolBar>
+                <Button onAction="#showNewContactDialog">
+                    <tooltip>
+                        <Tooltip text="Add a new Contact" />
+                    </tooltip>
+                    <graphic>
+                        <ImageView>
+                            <Image url="@add-user.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </ToolBar>
+        </VBox>
+    </top>
+    <center>
+        <CustomTableView fx:id="tableView" onKeyPressed="#handleDeleteKey" >
+            <columns>
+                <CustomTableColumn fx:id="firstName" percentWidth="17.5" text="First Name" />
+                <CustomTableColumn fx:id="lastName" percentWidth="17.5" text="Last Name"/>
+                <CustomTableColumn fx:id="phoneNumber" percentWidth="25" text="Phone Number"/>
+                <CustomTableColumn fx:id="notes" percentWidth="40" text="Notes"/>
+            </columns>
+        </CustomTableView>
+    </center>
+</BorderPane>
